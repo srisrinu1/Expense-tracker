@@ -1,4 +1,5 @@
 import React from 'react'
+import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css';
 
 export default function ExpenseItem(props) {
@@ -6,16 +7,10 @@ export default function ExpenseItem(props) {
     // const date=currentDate.toLocaleDateString();
     // console.log(props)
     const {date,title,price}=props;
-    const month=date.toLocaleString("en-US",{month:"long"});
-    const day=date.toLocaleString("en-US",{day:"2-digit"});
-    const year=date.toLocaleString("en-US",{year:"numeric"})
+    
     return (
         <div className="expense-item">
-          <div className="">
-            <div>{month}</div>
-            <div>{day}</div>
-            <div>{year}</div>
-            </div>
+         <ExpenseDate date={date}/>
             <div className="expense-item__description">
             <h2>{title}</h2>
             <div className="expense-item__price">{price}</div>

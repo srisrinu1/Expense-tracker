@@ -1,12 +1,13 @@
 
 // import './App.css';
-import ExpenseItem from './components/ExpenseItem/ExpenseItem'
+import ExpenseItem from './components/ExpenseItem/ExpenseItem';
+import Expenses from './components/ExpenseItem/Expenses';
 
 function App() {
-  const expenses=[{expenseDate:new Date(),expenseTitle:"MobileCharge",price:"Rs.48"}]
+  const expenses=[{id:"exp1",expenseDate:new Date(),expenseTitle:"MobileCharge",price:"Rs.48"},{id:"exp2",expenseDate:new Date(),expenseTitle:"ElectricBill",price:"Rs.602"}]
   return (
     <div className="App">
-      <ExpenseItem title={expenses[0].expenseTitle} price={expenses[0].price} date={expenses[0].expenseDate}/>
+    <Expenses expenses={expenses} />
     </div>
   );
 }
