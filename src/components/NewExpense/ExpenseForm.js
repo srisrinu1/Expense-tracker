@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
+import NewExpense from './NewExpense';
 import './ExpenseForm.css'
-export default function ExpenseForm() {
+export default function ExpenseForm(props) {
     // const [InputTitle,setInputTitle]=useState('');
     // const [InputAmount,setInputAmount]=useState('');
     // const [InputDate,setInputDate]=useState('');
@@ -15,6 +16,7 @@ export default function ExpenseForm() {
     // }
     const initialValue={enteredTitle:"",enteredAmount:"",enteredDate:""}
     const [data,setData]=useState(initialValue);
+    const [edit,setEdit]=useState(true);
     const handleChange=(e)=>{
         const {name,value}=e.target;
         setData(values => ({...values, [name]: value}));
@@ -26,9 +28,10 @@ export default function ExpenseForm() {
         const expensesData={
            title:data.enteredTitle,
            amount:data.enteredAmount,
-           Date:new Date(data.enteredDate)
+           date:new Date(data.enteredDate)
         }
-        console.log(expensesData);
+        props.onSaveData(expensesData);
+        setEdit(false);
         setData(initialValue);
     }
    
@@ -50,7 +53,8 @@ export default function ExpenseForm() {
             </div>
             </div>
             <div className="new-expense__actions">
-            <button type="submit">Add Expense</button>
+            <button type="button" onClick={props.editingStatus}>cancel</button>
+            <button type="submit" >Add Expense</button>
             </div>
              
             
