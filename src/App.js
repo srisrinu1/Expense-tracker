@@ -1,4 +1,3 @@
-// import './App.css';
 import React,{useState} from 'react';
 
 import Expenses from './components/ExpenseItem/Expenses';
